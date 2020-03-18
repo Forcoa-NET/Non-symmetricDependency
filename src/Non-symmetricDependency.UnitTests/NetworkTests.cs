@@ -7,5 +7,9 @@ namespace Non_symmetricDependency.UnitTests
     public class NetworkTests
     {
 
+        public NetworkTests()
+        {
+
+        }
     }
 }
