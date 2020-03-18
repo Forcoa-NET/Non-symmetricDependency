@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace Non_symmetricDependency.Console
+﻿namespace Non_symmetricDependency.Console
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            System.Console.WriteLine("Start");
         }
     }
 }
