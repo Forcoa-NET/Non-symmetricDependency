@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Non_symmetricDependency.Algorithm
+﻿namespace Non_symmetricDependency.Algorithm
 {
     public struct Edge
     {

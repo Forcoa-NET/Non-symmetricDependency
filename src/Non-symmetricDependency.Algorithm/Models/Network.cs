@@ -1,4 +1,5 @@
-﻿using Non_symmetricDependency.Algorithm.Models;
+﻿using Non_symmetricDependency.Algorithm.Exceptions;
+using Non_symmetricDependency.Algorithm.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,28 +14,37 @@ namespace Non_symmetricDependency.Algorithm.Models
 
         public Network(double[][] adjacencyMatrix)
         {
+            if (adjacencyMatrix is null)
+                throw new ArgumentNullException();
+
+            if (!INetwork.IsSquareMatrix(adjacencyMatrix))
+                throw new InvalidParametrException("Input is not square matrix");
+
+
+            this.Size = adjacencyMatrix.Length;
             this.adjacencyMatrix = adjacencyMatrix;
         }
 
         public bool AreNeighbours(int x, int y)
         {
+            if (x > Size || y > Size || x < 0 || y < 0)
+                throw new IndexOutOfMatrixSpace("One of parametters is outside of matrix space.");
+
             return adjacencyMatrix[x][y] > 0;
         }
 
         public double GetWeightOfEdge(int x, int y)
         {
+            if (x > Size || y > Size || x < 0 || y < 0)
+                throw new IndexOutOfMatrixSpace("One of parametters is outside of matrix space.");
+
             return adjacencyMatrix[x][y];
         }
 
-        public double GetCommonNeighboursWeight(int x, int neighbour)
+        public double GetNeighboursCoeficient(int x, int commonNeighbour, int y)
         {
-            return adjacencyMatrix[x][neighbour];
-        }
-
-        public double GetNeighboursCoeficient(int x, int neighbour, int y)
-        {
-            double divident = adjacencyMatrix[neighbour][y];
-            double divisor = adjacencyMatrix[x][neighbour] + adjacencyMatrix[neighbour][y];
+            double divident = adjacencyMatrix[commonNeighbour][y];
+            double divisor = adjacencyMatrix[x][commonNeighbour] + adjacencyMatrix[commonNeighbour][y];
 
             return divident / divisor;
         }

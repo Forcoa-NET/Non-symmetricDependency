@@ -1,5 +1,4 @@
 ﻿using Non_symmetricDependency.Algorithm.Models;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -42,7 +41,7 @@ namespace Non_symmetricDependency.Algorithm
 
             foreach (int neighbour in commonNeighbours)
             {
-                WeightsTimesCoef += (network.GetCommonNeighboursWeight(x, neighbour) * network.GetNeighboursCoeficient(x, neighbour, y));
+                WeightsTimesCoef += (network.GetWeightOfEdge(x, neighbour) * network.GetNeighboursCoeficient(x, neighbour, y));
             }
 
             return WeightsTimesCoef;
