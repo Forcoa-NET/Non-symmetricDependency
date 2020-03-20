@@ -8,6 +8,21 @@
 
 ## Description
 
+This repository contains implementation of algorithm by following definition.
+
+![Definition of Dependency](Description.png "Definition of Dependency")
+
+More background information can be found in this [article](https://appliednetsci.springeropen.com/articles/10.1007/s41109-019-0192-6).
+
+
 ## Contribution
 
+Author: Milos Kudelka - milos.kudelka@vsb.cz
+
+Implementation: Jakub Plesník - jakub.plesnik.st@vsb.cz
+
+Fell free to create pull request with fixes or enhancements.
+
 ## Licence
+
+Algorithm is published under MIT licence.
