@@ -10,7 +10,7 @@
 
 This repository contains implementation of algorithm by following definition.
 
-![Definition of Dependency](Description.png "Definition of Dependency")
+![Definition of Dependency](Description.PNG "Definition of Dependency")
 
 More background information can be found in this [article](https://appliednetsci.springeropen.com/articles/10.1007/s41109-019-0192-6).
 
