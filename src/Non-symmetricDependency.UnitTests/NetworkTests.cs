@@ -138,6 +138,21 @@ namespace Non_symmetricDependency.UnitTests
             Assert.Equal(0, network.GetWeightOfEdge(0, 2));
         }
 
+        [Fact]
+        public void GetWeightOfEdge_InvalidIndex_ShouldThrow()
+        {
+            double[][] matrix =
+                    {
+                        new double[] { 0, 1, 0 },
+                        new double[] { 1, 0, 1 },
+                        new double[] { 0, 1, 0 }
+                    };
+
+            var network = new Network(matrix);
+
+            Assert.Throws<IndexOutOfMatrixSpace>(() => network.GetWeightOfEdge(-1, 2));
+        }
+
 
         [Fact]
         public void GetNeighboursWeightSum_ExistingNode_ShouldReturnSummOfWeights()
