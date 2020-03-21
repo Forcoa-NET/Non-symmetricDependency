@@ -1,4 +1,5 @@
-﻿using Non_symmetricDependency.Algorithm.Models;
+﻿using Non_symmetricDependency.Algorithm.Exceptions;
+using Non_symmetricDependency.Algorithm.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -10,14 +11,24 @@ namespace Non_symmetricDependency.Algorithm
 
         private readonly INetwork network;
 
+        private bool isExecuted = false;
+
         public DependencyAlgorithm(INetwork network)
         {
             this.network = network;
             DependencyMatrix = new double[network.Size][];
+
+            for (int i = 0; i < network.Size; i++)
+            {
+                DependencyMatrix[i] = new double[network.Size];
+            }
         }
 
         public double[][] GetDependencyMatrix()
         {
+            if(!isExecuted)
+                throw new AlgorithmNotExecuted("Algorithm must be executed before accesing result.");
+
             return DependencyMatrix;
         }
 
@@ -58,6 +69,8 @@ namespace Non_symmetricDependency.Algorithm
                     }
                 }
             });
+
+            isExecuted = true;
         }
     }
 }

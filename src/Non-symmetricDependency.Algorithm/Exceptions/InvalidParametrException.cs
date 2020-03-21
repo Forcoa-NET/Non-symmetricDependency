@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Non_symmetricDependency.Algorithm.Exceptions
+﻿namespace Non_symmetricDependency.Algorithm.Exceptions
 {
     public class InvalidParametrException : AlgDomainException
     {
