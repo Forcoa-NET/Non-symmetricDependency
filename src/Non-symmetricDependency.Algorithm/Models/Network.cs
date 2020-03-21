@@ -1,8 +1,6 @@
 ﻿using Non_symmetricDependency.Algorithm.Exceptions;
-using Non_symmetricDependency.Algorithm.Models;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Non_symmetricDependency.Algorithm.Models
 {
@@ -25,9 +23,11 @@ namespace Non_symmetricDependency.Algorithm.Models
             this.adjacencyMatrix = adjacencyMatrix;
         }
 
+        private bool IsInvalidIndex(int i) => i > Size || i < 0;
+
         public bool AreNeighbours(int x, int y)
         {
-            if (x > Size || y > Size || x < 0 || y < 0)
+            if (IsInvalidIndex(x) || IsInvalidIndex(y))
                 throw new IndexOutOfMatrixSpace("One of parametters is outside of matrix space.");
 
             return adjacencyMatrix[x][y] > 0;
@@ -35,7 +35,7 @@ namespace Non_symmetricDependency.Algorithm.Models
 
         public double GetWeightOfEdge(int x, int y)
         {
-            if (x > Size || y > Size || x < 0 || y < 0)
+            if (IsInvalidIndex(x) || IsInvalidIndex(y))
                 throw new IndexOutOfMatrixSpace("One of parametters is outside of matrix space.");
 
             return adjacencyMatrix[x][y];
@@ -43,6 +43,9 @@ namespace Non_symmetricDependency.Algorithm.Models
 
         public double GetNeighboursCoeficient(int x, int commonNeighbour, int y)
         {
+            if (IsInvalidIndex(x) || IsInvalidIndex(commonNeighbour) || IsInvalidIndex(y))
+                throw new IndexOutOfMatrixSpace("One of parametters is outside of matrix space.");
+
             double divident = adjacencyMatrix[commonNeighbour][y];
             double divisor = adjacencyMatrix[x][commonNeighbour] + adjacencyMatrix[commonNeighbour][y];
 
@@ -51,6 +54,9 @@ namespace Non_symmetricDependency.Algorithm.Models
 
         public double GetNeighboursWeightSum(int node)
         {
+            if (IsInvalidIndex(node))
+                throw new IndexOutOfMatrixSpace("One of parametters is outside of matrix space.");
+
             double[] adjanceMatrixRow = adjacencyMatrix[node];
             double weightsSum = 0;
 
@@ -64,13 +70,15 @@ namespace Non_symmetricDependency.Algorithm.Models
 
         public List<int> GetCommonNeighboursIndexes(int x, int y)
         {
+            if (IsInvalidIndex(x) || IsInvalidIndex(y))
+                throw new IndexOutOfMatrixSpace("One of parametters is outside of matrix space.");
+
             List<int> CommonNeighbours = new List<int>();
 
             for (int i = 0; i < Size; i++)
             {
                 if (adjacencyMatrix[x][i] > 0 && adjacencyMatrix[y][i] > 0)
                     CommonNeighbours.Add(i);
-
             }
 
             return CommonNeighbours;
