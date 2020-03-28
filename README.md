@@ -2,7 +2,7 @@
 ![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/ple0049/1948078f-2e6c-4abe-b86e-16a823fd37a2/1)
 ![Azure DevOps tests](https://img.shields.io/azure-devops/tests/ple0049/1948078f-2e6c-4abe-b86e-16a823fd37a2/1)
 
-# Non-symmetric Dependency
+# Non-Symmetric Structural Dependency
 
 ## Content
 
