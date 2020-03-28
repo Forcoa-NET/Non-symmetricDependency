@@ -4,15 +4,15 @@
 
 # Non-Symmetric Structural Dependency
 
-## Content
+This repository contains implementation of non-symmetric structural similarity between pairs of nodes, which we refer to as dependency. This dependency can be used, thanks to non-symmetry, to accurately describe the prominent nodes in the zones which are responsible for large zone overlaps and the reasons why overlaps occur.
 
-## Description
+More background information and specific use case can be found in the original [article](https://appliednetsci.springeropen.com/articles/10.1007/s41109-019-0192-6).
+
+## Algorithm
 
 This repository contains implementation of algorithm by following definition.
 
 ![Definition of Dependency](Description.PNG "Definition of Dependency")
-
-More background information can be found in this [article](https://appliednetsci.springeropen.com/articles/10.1007/s41109-019-0192-6).
 
 
 ## Contribution
@@ -23,6 +23,10 @@ Implementation: Jakub Plesník - jakub.plesnik.st@vsb.cz
 
 Fell free to create pull request with fixes or enhancements.
 
+## Disclaimer
+
+Algorithm is implemented with focus on readability so there is minimum of performance optimalizations.
+
 ## Licence
 
-Algorithm is published under MIT licence.
+The algorithm is published under MIT licence.
